@@ -261,9 +261,10 @@ Spacer[size="8"] { height: 8rem; }
 	backdrop-filter: blur(20px);
 }
 
-.Section--cards img {
-	/*max-height: 20vh;*/
-	height: 100%;
+@media (min-width: 936px) {	
+	.Section--cards img {
+		height: 100%;
+	}
 }
 /*
  * End Cards Section 
