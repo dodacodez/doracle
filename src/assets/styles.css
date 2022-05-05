@@ -17,23 +17,15 @@ body {
 	font-size: 18px;
 	margin: 0;
 	scroll-behavior: smooth;
-}
-
-body:before {
-	content: "";
-	position: fixed;
-	top:  0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background: url('/assets/bg.jpeg') no-repeat center center; 
-	background-size: cover;
-	z-index: -1;
+	background: #ffeede url('/assets/bg.jpeg') no-repeat center center; 
+	background-size: auto 100vh;
+	background-attachment: fixed;
+	text-shadow: 0 0 1px #b09086;
 }
 
 @media (min-width: 936px) {
-	body:before {
-		left: 50%;
+	body {
+		background-position: 100% center;
 	}
 }
 
@@ -59,22 +51,63 @@ h2 { font-size: 2.5rem; }
 
 p { line-height: 1.4; }
 
+.Button {
+	padding: 1rem 2rem;
+	font: inherit;
+	color: inherit;
+	background: white;
+	border-radius: 2rem;
+	text-align: center;
+	transition: background 0.1s ease-in, color 0.1s ease-in;
+}
+
+.Button:hover {
+	background: rgba(16, 15, 240, 0.9);
+	backdrop-filter: blur(10px);
+	text-decoration: none;
+	color: white;
+}
+
+.Button--youtube {
+	position: fixed;
+	z-index: 1;
+	bottom: 1rem;
+	left: 0;
+	border-radius: 0;
+	background: rgba(16, 15, 240, 0.8);
+	font-weight: bold;
+	text-shadow: 0 0 1px white;
+	color: white;	
+	font-size: 1.3rem;
+	letter-spacing: 0.05rem;
+}
+
+@media (min-width: 936px) {
+	.Button--youtube {
+		top: 50%;
+		bottom: auto;
+	}
+}
+
 img { display: inline-block; max-width: 100%; }
 .Image--round {
 	border-radius: 100%;
 	overflow: hidden;
 }
 .Image--shadow {
-	box-shadow: 0.795rem 0.795rem 2rem 0rem #100ff0
+	box-shadow: 0rem 1rem 2rem 0rem #100ff0;
+	border-radius: 3px;
 }
 
 .Rows > * { padding: 1rem }
 @media (max-width: 936px) {
-	.Rows > * { width: auto !important }
+	.Rows > * { 		
+		width: auto !important 
+	}
 }
 @media (min-width: 936px) {
 	.Rows { display: flex; }
-	.Rows > * { min-width: 0; flex: 1 }
+	.Rows > * { min-width: 0; flex: 1; padding: 2rem; }
 }
 
 .Section {
@@ -114,15 +147,50 @@ Spacer[size="8"] { height: 8rem; }
 	background: rgba(255, 238, 222, 0.8);
 	backdrop-filter: blur(100px);
 	font-weight: bold;
-	border-radius: 0.2rem;
+	border-radius: 0.2rem;	
 }
 
+.Social {
+	display: inline-flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+}
+
+.Social li {
+	padding: 0;
+	margin: 0.5em;
+}
+
+.Social a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border:  1px solid rgba(16, 15, 240, 0.9);
+	border-radius: 100%;
+	width: 3em;
+	height: 3em;
+	transition: color 0.1s ease-in;
+}
+
+.Social a:hover {
+	color: rgba(16, 15, 240, 0.9);
+}
+
+.Social svg {
+	fill: currentColor;
+	width: 60%;
+	height: 60%
+}
 
 /** 
  * Gradient Section 
  */
 .Section--gradient {
-	background-image: linear-gradient(178deg, #100FF0 0%, #FA028B 100%);
+	/*background-image: linear-gradient(178deg, #100FF0 0%, #FA028B 100%);*/
+	background-image:  linear-gradient(178deg, rgba(16, 15, 240, 0.9) 0%, rgba(250, 2, 139, 0.9) 100%);
+	backdrop-filter: blur(10px);
 	color:  white;
 }
 /*
@@ -144,12 +212,14 @@ Spacer[size="8"] { height: 8rem; }
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: rgba(255, 238, 222, 0.8);
+	background: rgba(255, 238, 222, 0.7);
+	backdrop-filter: blur(1px);
 }
 
 @media (min-width: 936px) {	
 	.Section--top .Rows > :first-child {
-		align-items: flex-end;
+		align-items: flex-start;
+		background: none;
 	}
 }
 
@@ -161,7 +231,17 @@ Spacer[size="8"] { height: 8rem; }
 /**
  * Info Section
  */
-.Section--info .Image--round {
+.Section--info {
+	text-align: center;
+}
+
+@media (min-width: 936px) {	
+	.Section--info {
+		text-align: initial;
+	}
+}
+
+.Section--info .Image--round {	
 	max-width: 250px;
 	transition: transform 0.4s ease-in-out;
 }
@@ -177,11 +257,13 @@ Spacer[size="8"] { height: 8rem; }
  * Cards Section
  */
 .Section--cards {
-	background: #ffeede;
+	background: rgba(255, 238, 222, 0.8);
+	backdrop-filter: blur(20px);
 }
 
 .Section--cards img {
 	/*max-height: 20vh;*/
+	height: 100%;
 }
 /*
  * End Cards Section 
@@ -191,9 +273,16 @@ Spacer[size="8"] { height: 8rem; }
  * About Section
  */
 .Section--about {
+	text-align: center;
 	background: url(/assets/video_bg.gif) #383e4a no-repeat;
 	background-size: cover;
 	color: white;
+}
+
+@media (min-width: 936px) {	
+	.Section--about {
+		text-align: initial;
+	}
 }
 
 .Section--about img {
@@ -201,4 +290,21 @@ Spacer[size="8"] { height: 8rem; }
 }
 /*
  * End About Section 
+ **/
+
+
+/**
+ * Readings Section
+ */
+.Section--readings {
+	text-align: center;
+}
+
+.Section--readings .Rows {
+	background: rgba(255, 238, 222, 0.7);
+	backdrop-filter: blur(20px);
+	border-radius: 3px;
+}
+/*
+ * End Readings Section 
  **/
