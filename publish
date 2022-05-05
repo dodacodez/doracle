@@ -13,6 +13,7 @@ xm build --output ./build --root ./src
 git add .
 git commit -m "publishing"
 git push origin master
+cp -R .vercel build
 cd build
 vercel --prod
 echo "Congrats! Your site was published successfully!"
