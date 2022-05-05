@@ -1,0 +1,204 @@
+@font-face {
+  font-family: 'doracle';
+  src: url('/assets/font.woff2') format('woff2'),
+      url('/assets/font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+* { box-sizing: border-box; }
+
+body {
+	background: #ffeede;
+	color: #545454;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 18px;
+	margin: 0;
+	scroll-behavior: smooth;
+}
+
+body:before {
+	content: "";
+	position: fixed;
+	top:  0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: url('/assets/bg.jpeg') no-repeat center center; 
+	background-size: cover;
+	z-index: -1;
+}
+
+@media (min-width: 936px) {
+	body:before {
+		left: 50%;
+	}
+}
+
+a { 
+	color: currentColor;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1,h2,h3,h4,h5,h6,p { margin: 0 }
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "doracle", sans-serif;
+	font-weight: normal;
+	letter-spacing: 0.1rem;
+}
+
+h1 { font-size: 3.4rem; }
+h2 { font-size: 2.5rem; }
+
+p { line-height: 1.4; }
+
+img { display: inline-block; max-width: 100%; }
+.Image--round {
+	border-radius: 100%;
+	overflow: hidden;
+}
+.Image--shadow {
+	box-shadow: 0.795rem 0.795rem 2rem 0rem #100ff0
+}
+
+.Rows > * { padding: 1rem }
+@media (max-width: 936px) {
+	.Rows > * { width: auto !important }
+}
+@media (min-width: 936px) {
+	.Rows { display: flex; }
+	.Rows > * { min-width: 0; flex: 1 }
+}
+
+.Section {
+	min-height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.Section-content {
+	width: 100%;
+	max-width: 936px;
+	margin: 0 auto;
+	padding: 1rem;	
+}
+
+Spacer { height: 1rem; display: block;}
+Spacer[size="1"] { height: 1rem; }
+Spacer[size="2"] { height: 2rem; }
+Spacer[size="3"] { height: 3rem; }
+Spacer[size="4"] { height: 4rem; }
+Spacer[size="6"] { height: 6rem; }
+Spacer[size="8"] { height: 8rem; }
+
+
+.Nav {
+	text-align: center;
+	position: fixed;
+	top: 1rem;
+	z-index: 2;
+	width: 100%;	
+}
+.Nav a { 
+	display: inline-block; 
+	padding: 0.1rem 0.5rem;
+	margin: 0 0.1rem;
+	background: rgba(255, 238, 222, 0.8);
+	backdrop-filter: blur(100px);
+	font-weight: bold;
+	border-radius: 0.2rem;
+}
+
+
+/** 
+ * Gradient Section 
+ */
+.Section--gradient {
+	background-image: linear-gradient(178deg, #100FF0 0%, #FA028B 100%);
+	color:  white;
+}
+/*
+ * End Gradient Section 
+ **/
+
+
+/** 
+ * Top Section 
+ */
+
+.Section--top .Rows > * {
+	min-height: 100vh;
+	min-height: calc(100vh - 2rem);
+}
+
+.Section--top .Rows > :first-child {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 238, 222, 0.8);
+}
+
+@media (min-width: 936px) {	
+	.Section--top .Rows > :first-child {
+		align-items: flex-end;
+	}
+}
+
+/*
+ * End Top Section 
+ **/
+
+
+/**
+ * Info Section
+ */
+.Section--info .Image--round {
+	max-width: 250px;
+	transition: transform 0.4s ease-in-out;
+}
+
+.Section--info .Image--round:hover {
+	transform: rotateZ(-7deg);
+}
+/*
+ * End Info Section 
+ **/
+
+/**
+ * Cards Section
+ */
+.Section--cards {
+	background: #ffeede;
+}
+
+.Section--cards img {
+	/*max-height: 20vh;*/
+}
+/*
+ * End Cards Section 
+ **/
+
+/**
+ * About Section
+ */
+.Section--about {
+	background: url(/assets/video_bg.gif) #383e4a no-repeat;
+	background-size: cover;
+	color: white;
+}
+
+.Section--about img {
+	max-width: 250px;
+}
+/*
+ * End About Section 
+ **/

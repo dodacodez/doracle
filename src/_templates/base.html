@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>The Doracle <slot name="title"></slot></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="blabla"
+    />
+    <meta
+      name="keywords"
+      lang="en-us"
+      content="blabla"
+    />
+      
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+
+    <link href="/assets/styles.css" rel="stylesheet" />
+    
+    <slot name="head"></slot>
+  </head>
+
+  <body>
+    <div class="Page">
+      <nav class="Nav">
+        <slot name="nav">
+          <a href="#info">Info</a>
+          <a href="#readings">Readings</a>
+          <a href="#about">About</a>
+        </slot>
+      </nav>
+
+      <slot></slot>
+    </div>
+    <slot name="scripts"></slot>
+  </body>
+</html>

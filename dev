@@ -1,0 +1,4 @@
+echo ""
+echo "press control + c to exit dev mode" 
+echo ""
+xm dev --root ./src
