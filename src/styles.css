@@ -156,6 +156,7 @@ Spacer[size="8"] { height: 8rem; }
 	margin: 0;
 	padding: 0;
 	font-size: 1em;
+	margin: 0 -0.5em;
 }
 
 .Social li {
